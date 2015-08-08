@@ -1,0 +1,80 @@
+﻿@model MyBank.Models.TransferModels
+
+@{
+    ViewBag.Title = "XferHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Transfer History</h2>
+
+<fieldset>
+    <legend>TransferModels</legend>
+
+    @*<div class="display-label">
+         @Html.DisplayNameFor(model => model.CheckingAccountNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CheckingAccountNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SavingAccountNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SavingAccountNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Amount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TransferDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TransferDate)
+    </div>*@
+    
+
+    <table align="center" style="width: 100%">
+            <tr>
+                <td>
+                    FromAccountNum</td>
+                <td>
+                    ToAccountNum</td>
+                <td>
+                    CheckingAccountNumber</td>
+                <td>
+                    Amount</td>
+                <td>
+                    TransferDate</td>
+            </tr>
+            
+        @foreach(var row in Model.TransferHisList) {
+
+            <tr>
+                <td>
+                    @row.FromAccountNum</td>
+                <td>
+                    @row.ToAccountNum</td>
+                <td>
+                    @row.CheckingAccountNumber</td>
+                <td>
+                    @row.Amount.ToString()</td>
+                <td>
+                    @row.TransferDate.ToString();</td>
+            </tr>
+
+        }
+
+        </table>
+        <br />
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
